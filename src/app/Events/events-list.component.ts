@@ -29,7 +29,7 @@ export class EventsListComponent implements OnInit {
   }
 
   handleThumbnailClick(eventName) {
-     this.toastrService.success(eventName);  
+    this.toastrService.success(eventName);  
   }
 
 }
