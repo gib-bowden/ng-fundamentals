@@ -13,6 +13,7 @@ import { appRoutes } from './routes';
 import { CreateEventComponent } from './Events/create-event.component';
 import { Error404Component } from './Errors/404.component';
 import { EventRouteActivator } from './Events/event-details/event-route-activator.service';
+import { componentFactoryName } from '@angular/compiler';
 
 
 @NgModule({
@@ -32,8 +33,18 @@ import { EventRouteActivator } from './Events/event-details/event-route-activato
   providers: [
     EventService,
     ToastrService,
-    EventRouteActivator
+    EventRouteActivator,
+    {provide: 'canDeactivateCreateEvent', useValue: checkDirtyState }
   ],
   bootstrap: [EventsAppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  
+}
+
+export function checkDirtyState(component:CreateEventComponent) {
+  if (component.isDirty) {
+    return window.confirm("do you want to navigate away?")
+  }
+  else return true; 
+}
