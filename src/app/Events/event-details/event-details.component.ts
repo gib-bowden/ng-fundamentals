@@ -1,4 +1,5 @@
-import {Component} from '@angular/core'
+import {Component, OnInit} from '@angular/core'
+import { EventService } from '../Shared/event.service';
 
 
 @Component({
@@ -9,6 +10,14 @@ import {Component} from '@angular/core'
     `]
 })
 
-export class EventDetailsComponent {
+export class EventDetailsComponent implements OnInit {
+
+    constructor(private eventService:EventService){
+        
+    }
+
+    ngOnInit() {
+        this.eventService.getEvent(1)
+    }
 
 }
