@@ -9,8 +9,8 @@ export interface IEvent {
         address: string
         city: string
         country: string
-    }
-    onlineUrl?: string,
+    },
+    locationUrl?: string,
     sessions: ISession[]
 }
 
@@ -21,5 +21,5 @@ export interface ISession {
     duration: number
     level: string
     abstract: string
-    voters: string  
+    voters: string[]
 }

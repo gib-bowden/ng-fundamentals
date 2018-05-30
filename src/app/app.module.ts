@@ -19,6 +19,7 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { Error404Component } from './Errors/404.component';
 import { componentFactoryName } from '@angular/compiler';
+import { AuthService } from './User/auth.service';
 
 
 
@@ -41,7 +42,8 @@ import { componentFactoryName } from '@angular/compiler';
     ToastrService,
     EventRouteActivator,
     EventListResolver,
-    {provide: 'canDeactivateCreateEvent', useValue: checkDirtyState }
+    {provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
+    AuthService
   ],
   bootstrap: [EventsAppComponent]
 })

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core'
 import { EventService } from '../Shared/event.service';
 import { ActivatedRoute } from '@angular/router';
+import { IEvent } from '..';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class EventDetailsComponent implements OnInit {
-    event:any
+    event:IEvent
 
     constructor(private eventService:EventService, private route:ActivatedRoute){
         
@@ -20,7 +21,7 @@ export class EventDetailsComponent implements OnInit {
 
     ngOnInit() {
         this.event = this.eventService.getEvent(+this.route.snapshot.params['id']);
-        this.event.modifiedImageUrl = this.event.imageUrl.replace('/app',''); 
+        this.event.imageUrl = this.event.imageUrl.replace('/app',''); 
     }
 
 }
