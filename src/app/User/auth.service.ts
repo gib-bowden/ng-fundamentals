@@ -4,6 +4,8 @@ import { Router } from "@angular/router";
 
 @Injectable()
 export class AuthService {
+  
+
     currentUser:IUser
 
     loginUser(userName:string, password:string) {
@@ -18,4 +20,9 @@ export class AuthService {
     isAuthenticated() {
         return !!this.currentUser; 
     }
+
+    updateCurrentUser(firstName: string, lastName: string): void {
+        this.currentUser.firstName = firstName
+        this.currentUser.lastName = lastName
+      }
 }
