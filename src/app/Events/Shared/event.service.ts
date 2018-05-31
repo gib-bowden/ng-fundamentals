@@ -9,6 +9,7 @@ import { IEvent } from './event.model';
 export class EventService {
 
 
+
     getEvents():Observable<IEvent[]> {
       let subject = new Subject<IEvent[]>();
       setTimeout(() => {subject.next(EVENTS); subject.complete();}, 2000)
@@ -24,6 +25,11 @@ export class EventService {
       newEvent.session = []
       EVENTS.push(newEvent); 
   }
+
+  updateEvent(event: any): void {
+    let index = EVENTS.findIndex(e => e.id = event.id)
+    EVENTS[index] = event
+}
 
 }
 
