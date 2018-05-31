@@ -20,6 +20,7 @@ import { appRoutes } from './routes';
 import { Error404Component } from './Errors/404.component';
 import { componentFactoryName } from '@angular/compiler';
 import { AuthService } from './User/auth.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -35,7 +36,9 @@ import { AuthService } from './User/auth.service';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     EventService,
